@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+
+}
+
+#demo {
+  height: 100%;
+  width: 100%;
+  background-color: #222831;
+}
+
+#info {
+  padding-left: 10px;
+  border-radius: 10px;
+  position: absolute;
+  user-select: none;
+  font-size: 2em;
+  width: 120px;
+  color: #EEEEEE;
+  background-color: #FD7013;
+}
+
+.test {
+  color: #fffa76; /* Mint green */
+
+}
