@@ -17,13 +17,6 @@
   --wobble100_minus: var(--big_deviation); */
 }
 
-#foo {
-  --rand: 0.5; /* will be a random number from 0 to 1 set by javascript */
-  --hue: calc(255 * var(--rand));
-  background-color: hsl(var(--hue), 67%, 57%);
-}
-/* style.css */
-
 body {
     font-family: "Josefin Sans", sans-serif;
     background-color: #f0f0f0; /* Light gray background */
@@ -32,6 +25,39 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    overflow: visible;
+    text-overflow:ellipsis;
+}
+
+.mouseover-fiesta {
+  font-size: 64px;
+  transition: all .3s;
+}
+
+.mouseover-fiesta:hover {
+  color: #ff69b4; /* Change color on hover (e.g., hot pink) */
+  transition: all .3s;
+  font-size: 100px;
+  animation: rotate 1s !important;
+}
+
+.mouseover-fiesta:on {
+  color: #ff69b4; /* Change color on hover (e.g., hot pink) */
+  transition: all .3s;
+  font-size: 100px;
+  animation: rotate 1s !important;
+}
+
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(180deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
 }
 
 .container {
