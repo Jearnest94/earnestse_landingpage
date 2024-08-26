@@ -4,7 +4,8 @@ const daysElement = document.querySelector('.days');
 const hoursElement = document.querySelector('.hours');
 const minutesElement = document.querySelector('.minutes');
 const secondsElement = document.querySelector('.seconds');
-const emailformElement = document.querySelector('.emailform')
+const emailformElement = document.querySelector('.emailform');
+const buttonElement = document.getElementById('dabutton');
 
 let targetValues = {
     days: 0,
@@ -34,39 +35,79 @@ function getCursor(event) {
     let cursor_x = event.clientX;
     let cursor_y = event.clientY;
     const emailformElementRect = emailformElement.getBoundingClientRect();
+    let button;
 
-    const xThresholdBig = 50; // Adjust this value as needed
-    const yThresholdBig = 50; // Adjust this value as needed
-    const xThreshold = 50; // Adjust this value as needed
-    const yThreshold = 50; // Adjust this value as needed
-    
+    const xThresholdBig = 250; // Adjust this value as needed
+    const yThresholdBig = 250; // Adjust this value as needed
+    const xThreshold = 100; // Adjust this value as needed
+    const yThreshold = 100; // Adjust this value as needed
+    const xThresholdSmall = 50; // Adjust this value as needed
+    const yThresholdSmall = 50; // Adjust this value as needed
 
-    if (
-        cursor_x >= emailformElementRect.left - xThresholdBig &&
-        cursor_x <= emailformElementRect.right + xThresholdBig &&
-        cursor_y >= emailformElementRect.top - yThresholdBig &&
-        cursor_y <= emailformElementRect.bottom + yThresholdBig
-    ) {
-        // Cursor is within the threshold, perform actions
-        console.log("Cursor is near the email form!");
-        // Add your desired actions here, e.g.,
-        // - Change the button's color
-        // - Show a tooltip
-        // - Play an animation
-        const button = document.querySelector('form button[type="button"]'); // Select the button
-        //button.style.backgroundColor = '#fffa76'; // Change the button's color to yellow
-    } else if (
-        cursor_x >= emailformElementRect.left - xThreshold &&
+
+
+    // if (cursor_x >= emailformElementRect.left - xThresholdBig &&
+    //     cursor_x <= emailformElementRect.right + xThresholdBig &&
+    //     cursor_y >= emailformElementRect.top - yThresholdBig &&
+    //     cursor_y <= emailformElementRect.bottom + yThresholdBig) {
+    //         console.log("NEAR email form!");
+
+    //     if (cursor_x >= emailformElementRect.left - xThreshold &&
+    //         cursor_x <= emailformElementRect.right + xThreshold &&
+    //         cursor_y >= emailformElementRect.top - yThreshold &&
+    //         cursor_y <= emailformElementRect.bottom + yThreshold) {
+    //         console.log("Cursor is veryvery near the email form!");
+    //     } 
+    // } else {
+    //     console.log("ELSE!");
+    // }
+
+
+    if (cursor_x >= emailformElementRect.left - xThresholdSmall &&
+        cursor_x <= emailformElementRect.right + xThresholdSmall &&
+        cursor_y >= emailformElementRect.top - xThresholdSmall &&
+        cursor_y <= emailformElementRect.bottom + xThresholdSmall) {
+        console.log("EXTREMELY VERY NEAR email form!");
+    } else if (cursor_x >= emailformElementRect.left - xThreshold &&
         cursor_x <= emailformElementRect.right + xThreshold &&
         cursor_y >= emailformElementRect.top - yThreshold &&
-        cursor_y <= emailformElementRect.bottom + yThreshold
-    )  {
+        cursor_y <= emailformElementRect.bottom + yThreshold) {
+        console.log("VERY NEAR email form!");
+    } else if (cursor_x >= emailformElementRect.left - xThresholdBig &&
+        cursor_x <= emailformElementRect.right + xThresholdBig &&
+        cursor_y >= emailformElementRect.top - yThresholdBig &&
+        cursor_y <= emailformElementRect.bottom + yThresholdBig) {
+        console.log("NEAR email form!");
 
-        button.style.animation = ''; // Stop the swing animation
-
+    } else {
+        console.log("ELSE!");
     }
-
 }
+
+
+//         button = document.getElementById("dabutton");
+//         console.log(button.classList);
+
+//         button.classList.add('wobbleshake'); // Add the 'near-hover' class
+
+//         //button.style.backgroundColor = '#fffa76'; // Change the button's color to yellow
+//     } else if (
+//         cursor_x >= emailformElementRect.left - xThreshold &&
+//         cursor_x <= emailformElementRect.right + xThreshold &&
+//         cursor_y >= emailformElementRect.top - yThreshold &&
+//         cursor_y <= emailformElementRect.bottom + yThreshold
+//     )  {
+//         button = document.getElementById("dabutton");
+//         console.log(button.classList);
+//         button.classList.remove('wobbleshake'); // Remove the 'near-hover' class
+
+//     } else {
+//         button = document.getElementById("dabutton");
+//         console.log(button.classList);
+//         console.log('else');
+//     }
+
+// }
 
 // Initial update
 updateTimer();
